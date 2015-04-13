@@ -1,0 +1,181 @@
+%\VignetteIndexEntry{rkafka}
+\documentclass[english,pdftex,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{babel}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{parskip}
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={rkafka},
+ pdfauthor={Mu Sigma Inc.},
+ pdfsubject={rkafka package}}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{datetime}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{booktabs}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\includegraphics[width=10mm]{MuSigmaLogo.jpg}}
+\fancyfoot[L]{\today}
+\fancyfoot[R]{Mu Sigma Inc.}
+\fancyfoot[C]{\textbf{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\begin{titlepage}
+\begin{center}
+
+\title{rkafka}
+\author{Mu Sigma Inc.}
+
+\includegraphics[width=50mm]{MuSigmaLogoText.jpg}\\[1cm]
+
+\text{\Large{rkafka}} \\[0.5cm]
+
+\HRule \\[0.4cm]
+{\Large{\textbf{rkafka is a package created to expose functionalities provided by Apache Kafka in the R layer.}}} \\[0.3cm]
+\HRule \\[0.5cm]
+
+\textsc{\large{\textbf{Version 1.0.0}}} \\[0.3cm]
+
+\vfill
+\textsc{\Large \today}
+
+\end{center}
+\end{titlepage}
+
+\maketitle{}
+\tableofcontents{}
+\clearpage{}
+
+\begin{abstract}
+\par{Apache Kafka is an open-source message broker project developed by the Apache Software Foundation written in Scala. The project aims to provide a unified, high-throughput, low-latency platform for handling real-time data feeds.}
+\par{This package contains functions that allows a R developer to use the messaging functionalities provided by Apache Kafka.}
+\end{abstract}
+\clearpage{}
+\section{Introduction}
+\par{rkafka is a package created to expose functionalities provided by Apache Kafka in the R layer.}
+\par{Apache Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system, but with a unique design.}
+\subsection{\textbf{Messaging Terminology}}
+\par{
+\begin{itemize}
+\item{\textbf{Topics:}} Kafka maintains feeds of messages in categories called topics.
+\item{\textbf{Producers:}} Processes that publish messages to a Kafka topic are producers.
+\item{\textbf{Consumers:}} Processes that subscribe to topics and process the feed of published messages are consumers.
+\end{itemize}
+}
+\par{Kafka is run as a cluster comprised of one or more servers each of which is called a broker. So, at a high level, producers send messages over the network to the Kafka cluster which in turn serves them up to consumers like this:}
+\par{
+\begin{center}
+\includegraphics[width=80mm]{producer_consumer.png}
+\end{center}
+}
+\par{For more on Apache Kafka, refer \url{http://kafka.apache.org/documentation.html#introduction}}
+
+\section{Administration}
+\par{To make use of this package, following steps need to be followed:}
+\par{\begin{itemize}
+\item{Apache Kafka(Version 2.8.0-0.8.1.1) to be downloaded}
+\item{Zookeeper server needs to be running}
+\item{Kafka server needs to be running}
+\end{itemize}}
+\section{Getting Started}
+\par{\subsection{\textbf{Make sure the zookeeper server and Kafka server are running}}}
+\par{\subsection{\textbf{Creating a Producer}}}
+\par{To create a producer, Kafka needs to know the list of brokers. If Kafka is setup on the local system, Kafka producer can be created by the following line of code:}
+\par{\textit{\textbf{producer1=rkafka.createProducer("127.0.0.1:9092")}}}
+\par{This creates a producer with all the default properties. Any of the properties of the producer can be altered by changing the corresponding arguments.}
+\subsection{\textbf{Sending messages}}
+\par{After creating a producer, it can be used to write messages to topics. If a topic doesn't exist already, it's created. For producer1 to write a message to a topic named "test", the following line of code will be used:}
+\par{\textit{\textbf{rkafka.send(producer1,"test","127.0.0.1:9092","Testing")}}}
+\subsection{\textbf{Creating a consumer}}
+\par{To read messages from a topic, a consumer needs to be created. One consumer can be associated with only one topic. To read from multiple topics, multiple consumers need to be created.}
+\par{To create a consumer, the IP of the Zookeeper server to which the consumer has to connect to and the topic from which the consumer has to be read needs to be specified. If Zookeeper is setup on the local system, use the following code to create a consumer:}
+\par{\textit{\textbf{consumer1=rkafka.createConsumer("127.0.0.1:2181","test")}}}
+\subsection{\textbf{Reading messages}}
+\par{The messages from a topic can be read in two ways:-one at a time and in a batch}
+\par{If your application requires messages to be received one at a time, use the \textit{\textbf{rkafka.read()}} function.}
+\par{However, if your application requires messages to received in a batch, use the \textit{\textbf{rakfka.readPoll() }}function.}
+\par{Both the functions, wait for a period of 'x' ms(specified by ConsumerTimeoutMsProperty while creating the consumer), for new messages. After 'x' ms have passed, they'll return a blank string.}
+\subsection{\textbf{Closing the producer and consumer}}
+\par{It's a good coding practice to close all the open connections in your application.}
+\par{Besides it's essential to close the producer connection after message sending is done, and to close the consumer connection after your application is done receiving messages.}
+\par{Failure to do so can result in the producer and consumer behaving erratically. To close the producer and consumer created in the previous examples, use the following lines of code:}
+\par{\textit{\textbf{rkafka.closeProducer(producer1)}}}
+\par{\textit{\textbf{rkakfa.closeConsumer(consumer1)}}}
+\subsection{\textbf{Simple Consumer}}
+\par{Kafka has a lower-level consumer api for reading message chunks directly from servers.  Under most circumstances this should not be needed as the developer of the application needs to handle offsets. It's usage is as follows:}
+\subsubsection{\textbf{Creating Simple Consumer}}
+\par{\textit{\textbf{consumer2=rkafka.createSimpleConsumer("172.25.1.78","9092","10000","100000","test")}}}
+\subsubsection{\textbf{Reading messages}}
+\par{Reading messages through Simple Consumer requires the rkafka.receivefromSimpleConsumer function to be called first. The topic to read from, offset, partition and client ID can be passed as arguments to this function.}
+\par{The following line of code reads from the topic "test" from 0th partition and 0th offset:}
+\par{\textit{\textbf{rkafka.receiveFromSimpleConsumer(consumer2,"test","0","0","test-group")}}}
+\par{After calling this function, to read the messages received by the SimpleConsumer,
+use the rkafka.readFromSimpleConsumer() function.}
+\par{This function returns one message at a time.}
+\par{Executing the following line of code will return the first message read by the SimpleConsumer}
+\par{\textit{\textbf{print(rkafka.readFromSimpleConsumer(consumer2))}}}
+\subsubsection{\textbf{Closing Simple Consumer}}
+\par{To close the simple consumer, execute the following line of code}
+\par{\textit{\textbf{rkafka.closeSimpleConsumer(consumer2)}}}
+\section{Example of Package Usage}
+\par{The following piece of code is based on the following assumptions:
+Kafka server is running on "127.0.0.1:9092"
+Zookeeper server is running on "127.0.0.1:2181"}
+\par{After ensuring Kafka server and Zookeeper server are running, create a producer.}
+\par{\textit{\textbf{>producer1=rkafka.createProducer("127.0.0.1:9092")}}}
+\par{Send messages to the topic "test".}
+\par{\textit{\textbf{>rkafka.send(producer1,"test","127.0.0.1:9092","Message 1")}}}
+\par{\textit{\textbf{>rkafka.send(producer1,"test","127.0.0.1:9092","Message 2")}}}
+\par{Create consumer to read from the topic "test".}
+\par{\textit{\textbf{>consumer1=rkafka.createConsumer("127.0.0.1:2181","test")}}}
+\par{Read first message from the topic "test".}
+\par{\textit{\textbf{>print(rkafka.read(consumer1))}}}
+\par{Message 1}
+\par{\textit{\textbf{>print(rkafka.read(consumer1))}}}
+\par{Message 2}
+\par{\textit{\textbf{>print(rkafka.read(consumer1))}}}
+\par{""}
+\par{Send more messages to the topic "test".}
+\par{\textit{\textbf{>rkafka.send(producer1,"test","127.0.0.1:9092","Message 3")}}}
+\par{\textit{\textbf{>rkafka.send(producer1,"test","127.0.0.1:9092","Message 4")}}}
+\par{\textit{\textbf{>rkafka.send(producer1,"test","127.0.0.1:9092","Message 5")}}}
+\par{
+\textit{\textbf{>print(rkafka.read(consumer1))}}}
+\par{Message 3}
+\par{\textit{\textbf{>print(rkafka.readPoll(consumer1))}}}
+\par{Message 4 , Message 5}
+\par{Closing the producer.}
+\par{\textit{\textbf{>rkafka.closeProducer(producer1)}}}
+\par{Closing the consumer.}
+\par{\textit{\textbf{>rkafka.closeConsumer(consumer1)}}}
+
+\newpage
+\begin{thebibliography}{}
+\bibitem{}Apache Kafka documentation : \url{http://kafka.apache.org/documentation.html}
+\end{thebibliography}
+\end{document}
