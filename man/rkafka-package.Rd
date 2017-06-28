@@ -11,8 +11,8 @@ It provides functionalities of creating a 'Kafka' producer, simple consumer,high
 \tabular{ll}{
 Package: \tab rkafka\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2015-04-13\cr
+Version: \tab 1.1\cr
+Date: \tab 2017-06-28\cr
 License: \tab Apache License 2.0\cr
 }
 1)Start 'Zookeeper' server.
@@ -27,7 +27,7 @@ License: \tab Apache License 2.0\cr
 \author{
 Shruti Gupta
 
-Maintainer: Who to complain to shruti.gupta@mu-sigma.com
+Maintainer: Who to complain to shrutigupta34@gmail.com
 
 }
 \references{

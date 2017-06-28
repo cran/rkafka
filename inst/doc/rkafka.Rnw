@@ -19,7 +19,7 @@
  breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
  {hyperref}
 \hypersetup{pdftitle={rkafka},
- pdfauthor={Mu Sigma Inc.},
+ pdfauthor={Shruti Gupta},
  pdfsubject={rkafka package}}
 \usepackage[protrusion=true, expansion=true]{microtype}
 \usepackage{booktabs}
@@ -33,9 +33,7 @@
 \usepackage{booktabs}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[R]{\includegraphics[width=10mm]{MuSigmaLogo.jpg}}
 \fancyfoot[L]{\today}
-\fancyfoot[R]{Mu Sigma Inc.}
 \fancyfoot[C]{\textbf{\thepage}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -49,9 +47,8 @@
 \begin{center}
 
 \title{rkafka}
-\author{Mu Sigma Inc.}
+\author{Shruti Gupta}
 
-\includegraphics[width=50mm]{MuSigmaLogoText.jpg}\\[1cm]
 
 \text{\Large{rkafka}} \\[0.5cm]
 
@@ -59,7 +56,7 @@
 {\Large{\textbf{rkafka is a package created to expose functionalities provided by Apache Kafka in the R layer.}}} \\[0.3cm]
 \HRule \\[0.5cm]
 
-\textsc{\large{\textbf{Version 1.0.0}}} \\[0.3cm]
+\textsc{\large{\textbf{Version 1.1}}} \\[0.3cm]
 
 \vfill
 \textsc{\Large \today}

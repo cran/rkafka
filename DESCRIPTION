@@ -1,15 +1,15 @@
 Package: rkafka
 Type: Package
 Title: Using Apache 'Kafka' Messaging Queue Through 'R'
-Version: 1.0
-Date: 2015-04-13
+Version: 1.1
+Date: 2017-06-28
 Author: Shruti Gupta[aut,cre]
-Maintainer: Shruti Gupta<shruti.gupta@mu-sigma.com>
-Description: Apache 'Kafka' is an open-source message broker project developed by the Apache Software Foundation which can be thought of as a distributed, partitioned, replicated commit log service.At a high level, producers send messages over the network to the 'Kafka' cluster which in turn serves them up to consumers.See <http://kafka.apache.org/> for more information.Functions included in this package enable:1.Creating 'Kafka' producer 2.Writing messages to a topic 3.Closing 'Kafka' producer 4.Creating 'Kafka' consumer 5.Reading messages from a topic 6.Closing 'Kafka' consumer. The jars required for this package are included in a separate package 'rkafkajars'.Thanks to Mu Sigma for their continued support throughout the development of the package.
+Maintainer: Shruti Gupta <shrutigupta34@gmail.com>
+Description: Apache 'Kafka' is an open-source message broker project developed by the Apache Software Foundation which can be thought of as a distributed, partitioned, replicated commit log service.At a high level, producers send messages over the network to the 'Kafka' cluster which in turn serves them up to consumers.See <http://kafka.apache.org/> for more information.Functions included in this package enable:1.Creating 'Kafka' producer 2.Writing messages to a topic 3.Closing 'Kafka' producer 4.Creating 'Kafka' consumer 5.Reading messages from a topic 6.Closing 'Kafka' consumer. The jars required for this package are included in a separate package 'rkafkajars'.
 Depends: rJava,RUnit,rkafkajars
 SystemRequirements: Oracle Java 7,Apache Kafka 2.8.0-0.8.1.1
 License: Apache License 2.0 | file LICENSE
-Packaged: 2015-04-13 11:50:54 UTC; shrutigupta34
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2015-04-13 16:40:13
+Packaged: 2017-06-28 21:31:23 UTC; shruti
+Date/Publication: 2017-06-28 22:01:11 UTC
