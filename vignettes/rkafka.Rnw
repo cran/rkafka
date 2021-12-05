@@ -56,7 +56,7 @@
 {\Large{\textbf{rkafka is a package created to expose functionalities provided by Apache Kafka in the R layer.}}} \\[0.3cm]
 \HRule \\[0.5cm]
 
-\textsc{\large{\textbf{Version 1.1}}} \\[0.3cm]
+\textsc{\large{\textbf{Version 1.3}}} \\[0.3cm]
 
 \vfill
 \textsc{\Large \today}
@@ -90,7 +90,7 @@
 \includegraphics[width=80mm]{producer_consumer.png}
 \end{center}
 }
-\par{For more on Apache Kafka, refer \url{http://kafka.apache.org/documentation.html#introduction}}
+\par{For more on Apache Kafka, refer \url{https://kafka.apache.org/documentation.html#introduction}}
 
 \section{Administration}
 \par{To make use of this package, following steps need to be followed:}
@@ -173,6 +173,6 @@ Zookeeper server is running on "127.0.0.1:2181"}
 
 \newpage
 \begin{thebibliography}{}
-\bibitem{}Apache Kafka documentation : \url{http://kafka.apache.org/documentation.html}
+\bibitem{}Apache Kafka documentation : \url{https://kafka.apache.org/documentation.html}
 \end{thebibliography}
 \end{document}

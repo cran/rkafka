@@ -1,14 +1,14 @@
-1763d70b1152630b9b55ba19bb123c3f *DESCRIPTION
+0ac4d12240b39a5002a49453d4d2595a *DESCRIPTION
 3b83ef96387f14655fc854ddc3c6bd57 *LICENSE
 f6b3307e041c39895448e85ccd8edad7 *NAMESPACE
 8da87934b6b0f0f6131195ab80ec96af *R/rkafka.R
-a40cfb6501575565fb59d7eee154e36a *build/vignette.rds
+17480f5073bbd0748e98b4da0daed4b7 *build/vignette.rds
 c41361ca7af9b8f3df1e8dc09e9b5bed *inst/NOTICE
-5814eacf547f0266240a94b844bf3bee *inst/doc/rkafka-manual.pdf
-c734af3bcf27743f0dee924c5e32c399 *inst/doc/rkafka.Rnw
-e57026c6f5cb05961bf06e1d6b87cabf *inst/doc/rkafka.pdf
+af9ecb92eb82b87a14aa30bf37389479 *inst/doc/rkafka-manual.pdf
+61572832841347a29daf5a5ac39db95c *inst/doc/rkafka.Rnw
+e22a9ebc1e4ece569cd87f1b817a4491 *inst/doc/rkafka.pdf
 8229d108a9eac58fd5ef0c544bb12bc6 *man/rakfa.receiveFromSimpleConsumer.Rd
-a46764150d972a6c1be4f6e2fbd5b981 *man/rkafka-package.Rd
+bea8ebc1b10c5bfe91bd6de0bf673202 *man/rkafka-package.Rd
 05a56ce77bae74cac846a0782005df11 *man/rkafka.closeConsumer.Rd
 4c270cd070e0bf680cd30cef000088a2 *man/rkafka.closeProducer.Rd
 4b44c6c45f899743754a0870f7763dfd *man/rkafka.closeSimpleConsumer.Rd
@@ -21,4 +21,4 @@ e88585ea6c121083a2e33c8de66c88e5 *man/rkafka.readFromSimpleConsumer.Rd
 9f143f0ea63e3bc56dd2ed8b485369c4 *man/rkafka.send.Rd
 82aac245a6d5ba3bbc2a69c1fafce39b *tests/unitTests.R
 6eb2d05bf2b85ab2e114a093766b2bfb *vignettes/producer_consumer.png
-c734af3bcf27743f0dee924c5e32c399 *vignettes/rkafka.Rnw
+61572832841347a29daf5a5ac39db95c *vignettes/rkafka.Rnw
