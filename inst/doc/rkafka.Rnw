@@ -1,7 +1,7 @@
 %\VignetteIndexEntry{rkafka}
 \documentclass[english,pdftex,a4paper]{article}
 \usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -56,7 +56,7 @@
 {\Large{\textbf{rkafka is a package created to expose functionalities provided by Apache Kafka in the R layer.}}} \\[0.3cm]
 \HRule \\[0.5cm]
 
-\textsc{\large{\textbf{Version 1.3}}} \\[0.3cm]
+\textsc{\large{\textbf{Version 1.4}}} \\[0.3cm]
 
 \vfill
 \textsc{\Large \today}
